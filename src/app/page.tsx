@@ -120,6 +120,8 @@ export default function Home() {
           initial={{ y: -100 }}
           animate={{ y: 0 }}
           className="fixed top-0 w-full z-50 backdrop-blur-lg bg-slate-900/70 border-b border-white/10"
+          role="navigation"
+          aria-label="Main navigation"
         >
           <div className="max-w-7xl mx-auto px-6 py-4">
             <div className="flex justify-between items-center">
@@ -153,8 +155,8 @@ export default function Home() {
         </motion.nav>
 
         {/* Hero Section */}
-        <section id="about" className="relative min-h-screen flex items-center justify-center px-6 pt-20">
-          <div className="absolute inset-0 overflow-hidden">
+        <section id="about" className="relative min-h-screen flex items-center justify-center px-6 pt-20" aria-label="About Amila Devin Senarathne">
+          <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
             <div className="absolute -inset-10 opacity-50">
               <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl animate-pulse"></div>
               <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl animate-pulse animation-delay-2000"></div>
@@ -187,13 +189,13 @@ export default function Home() {
                 </h1>
                 
                 <h2 className="text-2xl md:text-3xl text-gray-300 mb-6 font-semibold">
-                  Full Stack Developer
+                  Software Engineer • Full Stack Developer
                 </h2>
                 
-                <p className="text-lg text-gray-400 mb-8 leading-relaxed">
-                  Passionate Software Engineer with <span className="text-purple-400 font-semibold">3+ years</span> of experience designing, 
-                  developing, and deploying scalable web applications and robust backend systems. 
-                  Proven ability to lead teams, manage deliverables, and deliver end-to-end solutions.
+                <p className="text-lg text-gray-400 mb-8 leading-relaxed" itemProp="description">
+                  Passionate <strong>Software Engineer</strong> with <span className="text-purple-400 font-semibold">3+ years</span> of experience designing, 
+                  developing, and deploying <strong>scalable web applications</strong> and robust <strong>backend systems</strong>. 
+                  Proven ability to lead teams, manage deliverables, and deliver end-to-end solutions using <strong>React</strong>, <strong>Next.js</strong>, <strong>Node.js</strong>, <strong>Spring Boot</strong>, and modern cloud technologies.
                 </p>
 
                 <div className="flex flex-col gap-3 text-gray-300 mb-8">
@@ -280,10 +282,11 @@ export default function Home() {
                   <div className="relative aspect-square rounded-3xl overflow-hidden border-4 border-white/20 backdrop-blur-sm">
                     <Image
                       src="/profile_pic.jpg"
-                      alt="Amila Devin Senarathne - Software Engineer"
+                      alt="Amila Devin Senarathne - Software Engineer and Full Stack Developer headshot - Expert in React, Next.js, Node.js, and Spring Boot"
                       fill
                       className="object-cover"
                       priority
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     />
                   </div>
                 </div>
@@ -301,7 +304,7 @@ export default function Home() {
         </section>
 
         {/* Core Competencies */}
-        <section className="py-20 px-6 bg-black/20">
+        <section className="py-20 px-6 bg-black/20" aria-labelledby="competencies-heading">
           <div className="max-w-6xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 50 }}
@@ -310,7 +313,7 @@ export default function Home() {
               viewport={{ once: true }}
               className="text-center mb-12"
             >
-              <h2 className="text-4xl md:text-5xl font-bold mb-4">
+              <h2 id="competencies-heading" className="text-4xl md:text-5xl font-bold mb-4">
                 <span className="gradient-text">Core Competencies</span>
               </h2>
             </motion.div>
@@ -333,7 +336,7 @@ export default function Home() {
         </section>
 
         {/* Skills Section */}
-        <section id="skills" className="py-20 px-6">
+        <section id="skills" className="py-20 px-6" aria-labelledby="skills-heading">
           <div className="max-w-6xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 50 }}
@@ -342,7 +345,7 @@ export default function Home() {
               viewport={{ once: true }}
               className="text-center mb-16"
             >
-              <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              <h2 id="skills-heading" className="text-4xl md:text-5xl font-bold mb-6">
                 <span className="gradient-text">Technical Skills</span>
               </h2>
               <p className="text-gray-400 text-lg max-w-2xl mx-auto">
@@ -372,7 +375,7 @@ export default function Home() {
         </section>
 
         {/* Experience Section */}
-        <section id="experience" className="py-20 px-6 bg-black/20">
+        <section id="experience" className="py-20 px-6 bg-black/20" aria-labelledby="experience-heading">
           <div className="max-w-6xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 50 }}
@@ -381,7 +384,7 @@ export default function Home() {
               viewport={{ once: true }}
               className="text-center mb-16"
             >
-              <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              <h2 id="experience-heading" className="text-4xl md:text-5xl font-bold mb-6">
                 <span className="gradient-text">Professional Experience</span>
               </h2>
               <p className="text-gray-400 text-lg max-w-2xl mx-auto">
@@ -450,7 +453,7 @@ export default function Home() {
         </section>
 
         {/* Education Section */}
-        <section className="py-20 px-6">
+        <section className="py-20 px-6" aria-labelledby="education-heading">
           <div className="max-w-6xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 50 }}
@@ -459,7 +462,7 @@ export default function Home() {
               viewport={{ once: true }}
               className="text-center mb-16"
             >
-              <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              <h2 id="education-heading" className="text-4xl md:text-5xl font-bold mb-6">
                 <span className="gradient-text">Education & Certifications</span>
               </h2>
             </motion.div>
@@ -497,7 +500,7 @@ export default function Home() {
         </section>
 
         {/* Contact Section */}
-        <section id="contact" className="py-20 px-6 bg-black/20">
+        <section id="contact" className="py-20 px-6 bg-black/20" aria-labelledby="contact-heading">
           <div className="max-w-4xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 50 }}
@@ -506,7 +509,7 @@ export default function Home() {
               viewport={{ once: true }}
               className="text-center"
             >
-              <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              <h2 id="contact-heading" className="text-4xl md:text-5xl font-bold mb-6">
                 <span className="gradient-text">Let&apos;s Work Together</span>
               </h2>
               <p className="text-gray-400 text-lg mb-12 max-w-2xl mx-auto leading-relaxed">

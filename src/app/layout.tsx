@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { GoogleAnalytics } from "@/components/GoogleAnalytics";
+import { siteConfig, personSchema, websiteSchema, profilePageSchema } from "@/lib/seo-config";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -15,41 +16,12 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Amila Devin Senarathne | Software Engineer & Full Stack Developer",
+    default: siteConfig.title,
     template: "%s | Amila Devin Senarathne"
   },
-  description: "Passionate Software Engineer with 3+ years of experience designing, developing, and deploying scalable web applications. Expert in React, Next.js, Node.js, Spring Boot, and modern web technologies.",
-  keywords: [
-    "Amila Devin Senarathne",
-    "Amila Devin", 
-    "Software Engineer Sri Lanka",
-    "Full Stack Developer", 
-    "React Developer", 
-    "Next.js Expert",
-    "Node.js Developer",
-    "Spring Boot Developer",
-    "TypeScript Developer",
-    "Vue.js Developer",
-    "JavaScript Engineer",
-    "Web Development Sri Lanka",
-    "Panadura Software Engineer",
-    "AWS Developer",
-    "Docker Specialist",
-    "Kafka Developer",
-    "MySQL Expert",
-    "MongoDB Developer",
-    "Cloud Services",
-    "SEO Optimization",
-    "Scalable Web Applications",
-    "Backend Development",
-    "Frontend Development",
-    "API Development",
-    "Microservices Architecture",
-    "System Migration",
-    "Team Leadership",
-    "Ceylon Business Appliances",
-    "SLIIT Graduate"
-  ],
+  description: siteConfig.description,
+  keywords: siteConfig.keywords,
+  applicationName: "Amila Devin Portfolio",
   authors: [{ name: "Amila Devin Senarathne" }],
   creator: "Amila Devin Senarathne",
   publisher: "Amila Devin Senarathne",
@@ -65,27 +37,39 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Amila Devin Senarathne | Software Engineer & Full Stack Developer",
-    description: "3+ years of experience building scalable web applications with React, Next.js, Node.js, Spring Boot. Expert in cloud services, microservices, and modern web technologies.",
-    url: "https://amiladevin.me",
-    siteName: "Amila Devin Senarathne - Software Engineer Portfolio",
+    title: siteConfig.title,
+    description: siteConfig.description,
+    url: siteConfig.url,
+    siteName: siteConfig.title,
     images: [
       {
         url: "https://amiladevin.me/profile_pic.jpg",
         width: 1200,
         height: 630,
-        alt: "Amila Devin Senarathne - Software Engineer & Full Stack Developer",
+        alt: "Amila Devin Senarathne - Software Engineer & Full Stack Developer headshot",
+        type: "image/jpeg"
       },
+      {
+        url: "https://amiladevin.me/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Amila Devin Senarathne Portfolio",
+        type: "image/jpeg"
+      }
     ],
     locale: "en_US",
-    type: "website",
+    type: "profile",
+    firstName: "Amila",
+    lastName: "Senarathne",
+    username: "amiladevin",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Amila Devin Senarathne | Software Engineer & Full Stack Developer",
-    description: "3+ years building scalable applications with React, Next.js, Node.js, Spring Boot. Based in Sri Lanka.",
+    title: siteConfig.title,
+    description: siteConfig.description,
     images: ["https://amiladevin.me/profile_pic.jpg"],
     creator: "@amiladevin",
+    site: "@amiladevin",
   },
   verification: {
     google: "your-google-verification-code-here",
@@ -102,128 +86,53 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const structuredData = {
+  // Combined structured data for better SEO
+  const combinedSchema = {
     "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Amila Devin Senarathne",
-    "alternateName": "Amila Devin",
-    "jobTitle": "Software Engineer & Full Stack Developer",
-    "description": "Passionate Software Engineer with 3+ years of experience designing, developing, and deploying scalable web applications and robust backend systems.",
-    "url": "https://amiladevin.me",
-    "email": "amiladevin@gmail.com",
-    "telephone": "+94776659628",
-    "image": "https://amiladevin.me/profile_pic.jpg",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Panadura",
-      "addressRegion": "Western Province",
-      "addressCountry": "LK"
-    },
-    "sameAs": [
-      "https://github.com/amiladevin",
-      "https://linkedin.com/in/amiladevin",
-      "https://twitter.com/amiladevin"
-    ],
-    "knowsAbout": [
-      "JavaScript",
-      "TypeScript",
-      "React",
-      "Next.js",
-      "Vue.js",
-      "Node.js",
-      "Fastify",
-      "Spring Boot",
-      "ASP.NET Core",
-      "Kafka",
-      "Redis",
-      "MySQL",
-      "SQL Server",
-      "MongoDB",
-      "Firebase",
-      "Docker",
-      "Jenkins",
-      "AWS",
-      "Git",
-      "Bitbucket",
-      "Jira",
-      "WebSockets",
-      "Chart.js",
-      "Google APIs",
-      "SEO Optimization",
-      "Cloud Services",
-      "Microservices",
-      "Full Stack Development",
-      "System Architecture",
-      "Team Leadership"
-    ],
-    "hasCredential": [
-      {
-        "@type": "EducationalOccupationalCredential",
-        "credentialCategory": "degree",
-        "name": "B.Sc. (Hons.) in Information Technology",
-        "recognizedBy": {
-          "@type": "EducationalOrganization",
-          "name": "Sri Lanka Institute of Information Technology"
-        },
-        "educationalLevel": "Bachelor's Degree",
-        "about": "Specializing in Software Engineering"
-      },
-      {
-        "@type": "EducationalOccupationalCredential",
-        "credentialCategory": "certificate",
-        "name": "Information Technology Technician (NVQ 4)",
-        "recognizedBy": {
-          "@type": "EducationalOrganization",
-          "name": "National Apprentice and Industrial Training Authority"
-        }
-      }
-    ],
-    "workExperience": [
-      {
-        "@type": "OrganizationRole",
-        "roleName": "Full Stack Developer",
-        "startDate": "2024",
-        "description": "Lead end-to-end product revamps, system migrations, and automation projects"
-      },
-      {
-        "@type": "OrganizationRole",
-        "roleName": "Software Engineer",
-        "startDate": "2023",
-        "endDate": "2024",
-        "worksFor": {
-          "@type": "Organization",
-          "name": "Ceylon Business Appliances (Pvt) Ltd"
-        }
-      }
-    ],
-    "alumniOf": [
-      {
-        "@type": "EducationalOrganization",
-        "name": "Sri Lanka Institute of Information Technology"
-      },
-      {
-        "@type": "EducationalOrganization",
-        "name": "Arthur C Clark Institute for Modern Technology"
-      }
+    "@graph": [
+      personSchema,
+      websiteSchema,
+      profilePageSchema
     ]
   };
 
   return (
     <html lang="en">
       <head>
+        {/* Structured Data - JSON-LD */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(structuredData),
+            __html: JSON.stringify(combinedSchema),
           }}
         />
+        
+        {/* Canonical URL */}
         <link rel="canonical" href="https://amiladevin.me" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        
+        {/* Favicon and App Icons */}
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        
+        {/* Viewport and Basic Meta */}
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
         <meta name="theme-color" content="#8b5cf6" />
-        <meta name="geo.region" content="LK" />
+        
+        {/* Geo-location Meta Tags */}
+        <meta name="geo.region" content="LK-11" />
         <meta name="geo.placename" content="Panadura" />
         <meta name="geo.position" content="6.7133;79.9047" />
         <meta name="ICBM" content="6.7133, 79.9047" />
+        
+        {/* Additional SEO Meta Tags */}
+        <meta name="author" content="Amila Devin Senarathne" />
+        <meta name="language" content="English" />
+        <meta name="revisit-after" content="7 days" />
+        <meta name="rating" content="General" />
+        
+        {/* Preconnect to improve performance */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}

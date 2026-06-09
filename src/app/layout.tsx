@@ -71,9 +71,7 @@ export const metadata: Metadata = {
     creator: "@amiladevin",
     site: "@amiladevin",
   },
-  verification: {
-    google: "p3zcJMjhhKb4TR-qOXv4faZjuth7vmDLaGRaRNZ0mTc",
-  },
+
   alternates: {
     canonical: "https://amiladevin.me",
   },
@@ -117,6 +115,9 @@ export default function RootLayout({
         {/* Viewport and Basic Meta */}
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
         <meta name="theme-color" content="#8b5cf6" />
+        
+        {/* Google Site Verification */}
+        <meta name="google-site-verification" content="p3zcJMjhhKb4TR-qOXv4faZjuth7vmDLaGRaRNZ0mTc" />
         
         {/* Geo-location Meta Tags */}
         <meta name="geo.region" content="LK-11" />

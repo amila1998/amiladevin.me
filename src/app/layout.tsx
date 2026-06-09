@@ -72,7 +72,7 @@ export const metadata: Metadata = {
     site: "@amiladevin",
   },
   verification: {
-    google: "your-google-verification-code-here",
+    google: "p3zcJMjhhKb4TR-qOXv4faZjuth7vmDLaGRaRNZ0mTc",
   },
   alternates: {
     canonical: "https://amiladevin.me",
